@@ -1,0 +1,49 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+    "[java]": {
+        "editor.defaultFormatter": "Oracle.oracle-java"
+    },
+    "code-runner.executorMap":{ "python": "clear ; python -u"},
+    "code-runner.runInTerminal": true,
+    "code-runner.ignoreSelection": true,
+    "editor.fontFamily":"Fira Code",
+    "editor.fontLigatures":false,
+    "editor.fontSize": 15,
+    "editor.rulers":[80, 120],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "never",
+        "source.convertImportFormat": "explicit",
+        "source.fixAll.pylance": "always",
+        "source.unusedImports": "never"
+    },
+    "editor.minimap.enabled": false,
+    "python.languageServer": "Pylance",
+    "terminal.integrated.fontFamily": "monospace",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnknownMemberType": "none",
+        "reportUnknownArgumentType": "none",
+        "reportUnknownVariableType": "none",
+        "reportUnknownLambdaType": "none",
+        "reportUnknownParameterType": "none",
+        "reportAssignmentType": "warning"
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.importFormat": "absolute",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.compactFolders": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": false
+    },
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    }
+}
