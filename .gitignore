@@ -6,8 +6,11 @@ __pycache__
 db.sqlite3
 media/
 static/
+utils/
 # Backup files # 
 *.bak 
+
+project/local_settings.py
 
 # If you are using PyCharm # 
 # User-specific stuff
