@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{% static "global/css/style.css" %}" >   <title>Document</title>
 </head>
 <body>
-    <h1>{% block title %}BASE{% endblock %}</h1>
+    {% include "global/partials/_header.html" %}
+    <main class="content">
+        {% block content %}{% endblock content %}
+    </main>
 </body>
-</html>
+</html> 
