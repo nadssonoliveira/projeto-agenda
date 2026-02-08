@@ -1,0 +1,29 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="form-wrapper">
+        <h2>Contact</h2>
+        <form 
+        action="{% url "contact:create" %}" 
+        method="post" 
+        enctype='multipart/form-data'
+        > <!--enctype é para upload de arquivos -->
+            {% csrf_token %}
+             <div class="form-content">
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                         {{ field}} <!-- Exibe cada campo do formulário -->
+                         {{ field.errors }} <!-- Exibe os erros de validação para cada campo -->
+                    </div>
+                {% endfor %}
+            </div> 
+            <div class="form-content">
+                <div class="form-group">
+                    <!-- Tipo submit para enviar o formulário-->
+                    <button type="submit" class="btn">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
