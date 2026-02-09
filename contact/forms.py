@@ -9,12 +9,35 @@ class ContactForm(forms.ModelForm):
         widget= forms.TextInput(
             attrs={
                 'class':'classe-a classse-b',
-                'placeholder': 'Aqui veio do init'
+                'placeholder': 'first name'
             }
             ),
             label='Primeiro Nome',
             help_text='Texto para ajudar o usuário',
+    )
+    last_name = forms.CharField(
+        widget= forms.TextInput(
+            attrs={
+                'class':'classe-a classse-b',
+                'placeholder': 'last name'
+            }
+            ),
+    )
+    phone = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder':'your phone'
+            }
+        )
     )    
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder':'youremail@example.com'
+            }
+        )
+    )
+
 
 
     def __init__(self, *args, **kwargs):
@@ -28,7 +51,10 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = models.Contact
-        fields = 'first_name','last_name','phone',
+        fields = (
+            'first_name','last_name','phone',
+            'email', 'description', 'category'
+                  )
         # widgets = {
         #     'first_name': forms.TextInput(
         #         attrs={
@@ -63,8 +89,7 @@ class ContactForm(forms.ModelForm):
         if first_name == 'ABC':
             self.add_error(
             'first_name', ValidationError(
-                'Erro de validação', code='invalid'
+                'Veio do add_error', code='invalid'
             )
         )
-
         return first_name

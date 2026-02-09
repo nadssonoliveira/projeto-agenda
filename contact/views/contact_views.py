@@ -8,7 +8,7 @@ from contact.models import Contact
 def index(request):
     contacts = Contact.objects\
         .filter(show=True)\
-        .order_by('id')
+        .order_by('-id')
     
     paginator = Paginator(contacts, 10)
     page_number = request.GET.get('page')
