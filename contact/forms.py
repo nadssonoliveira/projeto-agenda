@@ -37,6 +37,13 @@ class ContactForm(forms.ModelForm):
             }
         )
     )
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept':'image/*',
+            }
+        )
+    )
 
 
 
@@ -53,7 +60,7 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = (
             'first_name','last_name','phone',
-            'email', 'description', 'category'
+            'email', 'description', 'category', 'picture'
                   )
         # widgets = {
         #     'first_name': forms.TextInput(

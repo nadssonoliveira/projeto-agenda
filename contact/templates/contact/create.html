@@ -5,7 +5,7 @@
         <h2>Contact</h2>
         <form 
         action="{{ form_action }}" 
-        method="post" 
+        method="POST" 
         enctype='multipart/form-data'
         > <!--enctype é para upload de arquivos -->
             {% csrf_token %}
@@ -19,6 +19,13 @@
                             <p class="help-text"> {{ field.help_text }}</p>
                         {% endif %}
                     </div>
+
+                    {% if field.name == 'picture' and field.value.url %}
+                        <div class="form-grup">
+                            <img src="{{ field.value.url }}" alt="">
+                        </div>
+                    {% endif %}
+
                 {% endfor %}
             </div> 
             <div class="form-content">
