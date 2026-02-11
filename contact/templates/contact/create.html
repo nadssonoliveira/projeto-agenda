@@ -1,39 +1,6 @@
 {% extends "global/base.html" %}
 
+
 {% block content %}
-    <div class="form-wrapper">
-        <h2>Contact</h2>
-        <form 
-        action="{{ form_action }}" 
-        method="POST" 
-        enctype='multipart/form-data'
-        > <!--enctype é para upload de arquivos -->
-            {% csrf_token %}
-             <div class="form-content">
-                {% for field in form %}
-                    <div class="form-group">
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                         {{ field}} <!-- Exibe cada campo do formulário -->
-                         {{ field.errors }} <!-- Exibe os erros de validação para cada campo -->
-                        {% if field.help_text %}
-                            <p class="help-text"> {{ field.help_text }}</p>
-                        {% endif %}
-                    </div>
-
-                    {% if field.name == 'picture' and field.value.url %}
-                        <div class="form-grup">
-                            <img src="{{ field.value.url }}" alt="">
-                        </div>
-                    {% endif %}
-
-                {% endfor %}
-            </div> 
-            <div class="form-content">
-                <div class="form-group">
-                    <!-- Tipo submit para enviar o formulário-->
-                    <button type="submit" class="btn">Send</button>
-                </div>
-            </div>
-        </form>
-    </div>
+{% include "./partials/_form.html" %}
 {% endblock content %}
