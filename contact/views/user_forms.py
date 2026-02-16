@@ -33,7 +33,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, 'Logado com sucesso!')
+            messages.success(request, f'Bem vindo, {user.first_name}!')
             return redirect('contact:index')
         messages.error(request, 'Login inválido')
     return render(request, 'contact/login.html', {
@@ -63,4 +63,4 @@ def user_update(request):
     
     messages.success(request, 'Update realizado com sucesso!')
     form.save()
-    return redirect('contact:user_update')
+    return redirect('contact:login')

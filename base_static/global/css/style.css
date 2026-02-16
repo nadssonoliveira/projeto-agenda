@@ -10,6 +10,7 @@
   --clr-dark-shadow-20: rgba(0, 0, 10, 20%);
   --clr-light-shadow-5: rgba(200, 200, 255, 5%);
   --clr-light-shadow-10: rgba(200, 200, 255, 10%);
+  --clr-red-light-shadow-10: rgba(255, 0, 0, 10%);
   --clr-light-shadow-20: rgba(200, 200, 255, 20%);
   --main-page-width: 120rem;
   --table-min-width: 60rem;
@@ -99,6 +100,10 @@ svg {
 
 .menu-link:hover {
   background: var(--clr-light-shadow-10);
+}
+
+.logout-link:hover {
+  background: var(--clr-red-light-shadow-10);
 }
 
 .content {
