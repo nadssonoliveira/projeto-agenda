@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+
 
 from contact import models
 
@@ -104,4 +106,47 @@ class ContactForm(forms.ModelForm):
     
 
 class RegisterForm(UserCreationForm):
-    ...
+    
+    first_name = forms.CharField(
+        required=True,
+        min_length=3,
+    )
+    last_name = forms.CharField(
+        required=True,
+        min_length=3,
+    )
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = (
+            'first_name', 'last_name', 'email',
+            'username', 'password1', 'password2',
+        )
+        
+    def clean(self):
+        first_name = self.cleaned_data.get('first_name')
+        last_name = self.cleaned_data.get('last_name')
+
+        if first_name == last_name:
+            msg_error = ValidationError('O nome e sobrenome não podem ser iguais.', code='invalid')
+            self.add_error('first_name', msg_error)
+            self.add_error('last_name', msg_error)
+
+
+    def clean_email(self):
+        cleaned_data = self.cleaned_data
+        email = cleaned_data.get('email')
+        email_check = User.objects.filter(email=email)
+
+        if email_check.exists():
+            msg_error = ValidationError('Já existe este e-mail', code='invalid')
+            self.add_error(
+                'email',
+                msg_error
+            )
+
+        return email
+    
+
+ 

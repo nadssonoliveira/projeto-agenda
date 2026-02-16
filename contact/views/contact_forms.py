@@ -14,7 +14,8 @@ def create(request):
 
         context = {
             'form': forms.ContactForm(request.POST),
-            'form_action':form_action
+            'form_action':form_action,
+            'form_title':'Contact'
         }
 
         if form.is_valid():
@@ -30,7 +31,8 @@ def create(request):
 
     context = {
         'form': forms.ContactForm(),
-        'form_action': form_action
+        'form_action': form_action,
+        'form_title':'Contact'
     }
 
     return render(
@@ -51,7 +53,8 @@ def update(request, contact_id):
 
         context = {
             'form': forms.ContactForm(request.POST),
-            'form_action':form_action
+            'form_action':form_action,
+            'form_title':'Contact'
         }
 
         if form.is_valid():
@@ -67,7 +70,8 @@ def update(request, contact_id):
 
     context = {
         'form': forms.ContactForm(instance=contact),
-        'form_action': form_action
+        'form_action': form_action,
+        'form_title':'Contact'
     }
 
     return render(
